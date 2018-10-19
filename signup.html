@@ -1,0 +1,139 @@
+<link href="signupcss.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!DOCTYPE html>
+ <html lang="en" class="no-js"> 
+    <head>
+        <meta charset="UTF-8" />
+        
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+                <script>
+                    function verify_em(s)
+            {
+                var x=document.getElementById(s).value;
+                var w=/^[a-z,0-9,.]{3,}\@[a-z]{4,}\.[a-z,.]{3,5}$/;
+                document.getElementById("p3").style.color="red";
+                if(!x.match(w))
+                {
+                    var e="invalid email address";
+                    document.getElementById("p3").innerHTML=e;
+                }
+                else
+                {
+                    var f="";
+                    document.getElementById("p3").innerHTML=f;
+                }
+            }
+            function t_verify(x)
+            {
+                
+                if(x.match('student'))
+                {
+                    document.getElementById("department").disabled=false;
+                }
+                else
+                {
+                    document.getElementById("department").disabled=true;
+                }
+            }
+            function verify_uname(x)		
+                
+		 {			
+			var xhr= new XMLHttpRequest(); 
+				
+
+			var url = 'signupverifyajax.php?js_var=' + x;
+			xhr.open('GET', url, false);
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState===4 && xhr.status===200) {
+                                                var c=xhr.responseText;
+                                                document.getElementById("p1").innerHTML=c;
+				}
+			}
+			xhr.send();
+                        return false;
+		}
+                function fo()
+                {
+                    document.getElementById("p1").innerHTML="";
+                }
+                function fo1()
+                {
+                    document.getElementById("p3").innerHTML="";
+                }
+                </script>
+		
+    </head>
+    <body>
+        <div class="container">
+           
+            <header>
+                <h1 id="he1">TRAINING AND PLACEMENT CELL</h1>
+				
+            </header>
+            <section>				
+                <div id="container_demo" >
+                    
+                    <a class="hiddenanchor" id="toregister"></a>
+                    <a class="hiddenanchor" id="tologin"></a>
+                    <div id="wrapper">
+                        <div id="login" class="animate form">
+                            <form  action="mysuperscript.php" autocomplete="on"> 
+                               
+                                <p class="change_link">
+									<a href="#toregister" class="to_register">Join us</a>
+								</p>
+                            </form>
+                        </div>
+
+                        <div id="register" class="animate form">
+                            <form  action="signupverify.php" autocomplete="on"> 
+                                <h1> Sign up </h1> 
+                                <p> 
+                                    <label for="usernamesignup" class="uname" >Your username</label>
+                                    <input id="name" name="name" required="required" type="text" onblur="verify_uname(this.value)" onfocus="fo()" placeholder="mysuperusername690" />
+                                </p>
+                                <p id="p1" class="uname" style="color: crimson"></p>
+                                <p> 
+                                    <label for="emailsignup" class="youmail"  > Your email</label>
+                                    <input id="emailsignup" name="email" required="required" type="text" placeholder="mysupermail@mail.com" onblur="verify_em(this.id)" onfocus="fo1()"/> 
+                                </p>  
+                                <p id="p3" class="youmail"></p>
+                                <p> 
+                                    <label for="passwordsignup" class="youpasswd" >Your password </label>
+                                    <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                </p>
+                                <pre><label for="type" class="youpasswd" >  Type </label>         <select name="type" required onchange="t_verify(this.value)">
+                                <option value="">none    
+                            <option name="type" value="student">Student
+                            <option name="type" value="mnc">Mnc
+                            </select></pre><br>
+                            <pre><label for="type" class="youpasswd" >Department </label>  <select name="department" id="department" required disabled>
+                            <option value="">none    
+                            <option name="department" value="cse">CSE
+                            <option name="department" value="ece">ECE
+                            <option name="department" value="it">IT
+                            <option name="department" value="mechanical">MECHANICAL
+                            <option name="department" value="civil">CIVIL
+                            <option name="department" value="eee">EEE
+                            <option name="department" value="chemical">CHEMICAL
+                            <option name="department" value="production">PRODUCTION
+                            </select></pre>    
+                                <p class="signin button"> 
+									<input type="submit" value="Sign up" /> 
+								</p>
+                                <p class="signin button"> 
+									<input type="reset" value="Reset"/> 
+								</p>
+                                
+                            </form>
+                        </div>
+						
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title> </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="external.css">
+        <script>
+            function f1(x)
+            {
+                    document.getElementById(x).style.color="black";
+                    document.getElementById(x).style.background = "orange";                   
+            }
+            function f2(x)
+            {
+                document.getElementById(x).style.color="green";
+                document.getElementById(x).style.background="yellow";
+            }
+
+            function reset()
+           {
+                alert("The information will be removed");
+           }
+           
+        </script>
+        <style>
+            input[type=text] 
+            {
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    border: 2px solid red;
+                    border-radius: 4px;
+            }
+            input[type=password] 
+            {
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    border: 2px solid red;
+                    border-radius: 4px;
+            }
+        </style>
+    </head>
+    <body class="b1" >
+        <div class="d1">
+        <h1 id="he1">TRAINING AND PLACEMENT CELL</h1>
+        <hr><br>
+        <form action="loginverify.php" onreset="reset" method="GET">
+            <table border="3" width="4" cellspacing="4" cellpadding="4" align="center">
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td> <input type="text" id="name" name="name" onfocus="f1(this.id)" onblur="f2(this.id)" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="password" name="password" onfocus="f1(this.id)" onblur="f2(this.id)" required></td>
+                    </tr>
+                    <tr>
+                        <td>Type:</td>
+                        <td><select name="type" required>
+                            <option value="">none    
+                            <option name="type" value="student">Student
+                            <option name="type" value="mnc">Mnc
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" value="LOGIN"></td>
+                    </tr>
+                        <td colspan="2" align="center"><input type="reset" value="RESET"></td>
+                    <tr>
+                </tbody>
+            </table>
+               
+        </form>
+    <br><hr>
+        </div>
+    </body>
+</html>
+

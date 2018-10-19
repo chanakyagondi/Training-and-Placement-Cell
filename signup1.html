@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title> </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="external.css">
+        <script>
+            function f1(x)
+            {
+                    document.getElementById(x).style.color="black";
+                    document.getElementById(x).style.background = "orange";                   
+            }
+            function f2(x)
+            {
+                document.getElementById(x).style.color="green";
+                document.getElementById(x).style.background="yellow";
+            }
+
+            function verify_em(s)
+            {
+                var x=document.getElementById(s).value;
+                var w=/^[a-z , 0-9 , .]{3,}\@[a-z]{4,}\.[a-z , .]{3,5}$/;
+                document.getElementById("p3").style.color="red";
+                if(!x.match(w))
+                {
+                    var e="invalid email address";
+                    document.getElementById("p3").innerHTML=e;
+                }
+                else
+                {
+                    var f="";
+                    document.getElementById("p3").innerHTML=f;
+                }
+            }
+            function t_verify(x)
+            {
+                
+                if(x.match('student'))
+                {
+                    document.getElementById("department").disabled=false;
+                }
+                else
+                {
+                    document.getElementById("department").disabled=true;
+                }
+            }
+        </script>
+        <style>
+            input[type=text] 
+            {
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    border: 2px solid red;
+                    border-radius: 4px;
+            }
+            input[type=password] 
+            {
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    box-sizing: border-box;
+                    border: 2px solid red;
+                    border-radius: 4px;
+            }
+            
+        </style>
+    </head>
+    <body class="b1" >
+        <div class="d1">
+        <h1 id="he1">TRAINING AND PLACEMENT CELL</h1>
+         <hr>
+         <br>
+        <form action="signupverify.php">
+            <table border="3" width="4" cellspacing="4" cellpadding="4" align="center">
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td> <input type="text" id="name" name="name" onfocus="f1(this.id)" onblur="f2(this.id)" required></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" id="password" name="password" onfocus="f1(this.id)" onblur="f2(this.id)" required></td>
+                    </tr>
+                    <tr>
+                        <td>Type:</td>
+                        <td><select name="type" required onchange="t_verify(this.value)">
+                            <option value="">none    
+                            <option name="type" value="student">Student
+                            <option name="type" value="mnc">Mnc
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="text" name="email" id="email" onchange="verify_em(this.id)" onfocus="f1(this.id)" onblur="f2(this.id)" required/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" id="p3">
+                    </tr>
+                    <tr>
+                        <td>Department:</td>
+                        <td><select name="department" id="department" required disabled>
+                            <option value="">none    
+                            <option name="department" value="cse">CSE
+                            <option name="department" value="ece">ECE
+                            <option name="department" value="it">IT
+                            <option name="department" value="mechanical">MECHANICAL
+                            <option name="department" value="civil">CIVIL
+                            <option name="department" value="eee">EEE
+                            <option name="department" value="chemical">CHEMICAL
+                            <option name="department" value="production">PRODUCTION
+                            </select>
+                        </td>
+                    </tr>    
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" value="SIGNUP" ></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="reset" value="RESET"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+         <br><hr>
+        </div>
+    </body>
+</html>
